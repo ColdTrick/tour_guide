@@ -1,0 +1,21 @@
+{
+	"name": "coldtrick/tour_guide",
+	"description": "Configure step-by-step guides and feature introductions for your Elgg site",
+	"type": "elgg-plugin",
+	"keywords": ["elgg", "plugin"],
+	"license": "GPL-2.0-only",
+	"support": {
+		"source": "https://github.com/ColdTrick/tour_guide",
+		"issues": "https://github.com/ColdTrick/tour_guide/issues"
+	},
+	"require": {
+		"composer/installers": "^1.0.8"
+	},
+	"require-dev": {
+		"coldtrick/sniffs": "dev-master",
+		"coldtrick/releases": "dev-master"
+	},
+	"conflict": {
+		"elgg/elgg": "<3.3"
+	}
+}
