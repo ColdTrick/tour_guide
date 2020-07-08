@@ -27,8 +27,12 @@ return [
 		],
 	],
 	'view_extensions' => [
+		'admin.css' => [
+			'tour_guide/site.css' => [],
+		],
 		'elgg.css' => [
 			'tour_guide/driver/driver.min.css' => [],
+			'tour_guide/site.css' => [],
 		],
 		'page/elements/header' => [
 			'tour_guide/check_tours' => [],

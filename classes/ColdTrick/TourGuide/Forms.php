@@ -27,6 +27,20 @@ class Forms {
 			foreach ($result as $key => $value) {
 				$result[$key] = $entity->$key;
 			}
+			
+			$steps = [];
+			$steps_config = $entity->steps_config ?: [];
+			foreach ($steps_config as $config) {
+				$config = json_decode($config, true);
+				$steps[] = [
+					'element' => $config['element'],
+					'title' => $config['title'],
+					'description' => $config['description'],
+					'position' => $config['position'],
+				];
+			}
+
+			$result['steps'] = $steps;
 		}
 		
 		return $vars + $result;
