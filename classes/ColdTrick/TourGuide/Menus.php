@@ -2,6 +2,8 @@
 
 namespace ColdTrick\TourGuide;
 
+use Elgg\Router\Route;
+
 class Menus {
 	
 	/**
@@ -68,6 +70,46 @@ class Menus {
 			'text' => elgg_echo('reset'),
 			'confirm' => true,
 			'href' => elgg_generate_action_url('feature_tour/reset', ['guid' => $entity->guid]),
+		]);
+
+		return $result;
+	}
+	
+	/**
+	 * Add menu items to the account menu
+	 *
+	 * @param \Elgg\Hook $hook 'register', 'menu:topbar'
+	 *
+	 * @return void|\ElggMenuItem[]
+	 */
+	public static function registerAccountMenu(\Elgg\Hook $hook) {
+
+		if (!elgg_is_admin_logged_in()) {
+			return;
+		}
+		
+		$route = _elgg_services()->request->getRoute();
+		if (!$route instanceof Route) {
+			return;
+		}
+		
+		$result = $hook->getValue();
+		
+		$result[] = \ElggMenuItem::factory([
+			'name' => 'feature_tour',
+			'icon' => 'plus',
+			'text' => elgg_echo('Add feature tour'),
+			'href' => 'ajax/form/feature_tour/save?route_name=' . $route->getName(),
+			'link_class' => [
+				'elgg-button',
+				'elgg-button-action',
+				'elgg-lightbox',
+			],
+			'data-colorbox-opts' => json_encode([
+				'width' => '800px',
+			]),
+			'parent_name' => 'account',
+			'section' => 'alt',
 		]);
 
 		return $result;
