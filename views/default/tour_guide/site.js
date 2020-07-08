@@ -1,37 +1,37 @@
 define(function(require) {
 	
 	var Driver = require('tour_guide/driver/driver.min'); 
-	var driver = new Driver();
+	var elgg = require('elgg');
+	var Ajax = require('elgg/Ajax');
+	
+	// create new driver
+	var driver = new Driver({
+		doneBtnText: elgg.echo('complete'),
+		closeBtnText: elgg.echo('close'),
+		nextBtnText: elgg.echo('next'),
+		prevBtnText: elgg.echo('previous'),
+		onNext: function (step) {
+			if (step.options.guid) {
+				report_completed_feature_tour(step.options.guid);
+			}
+		}
+	});
 	
 	// Define the steps for introduction
-	driver.defineSteps([
-	  {
-	    element: '.elgg-form-search',
-	    popover: {
-	      title: 'Search',
-	      description: 'You can search here',
-	      position: 'bottom'
-	    }
-	  },
-	  {
-	    element: '.elgg-page-topbar',
-	    popover: {
-	      title: 'Topbar',
-	      description: 'Ohh nice menu mister',
-	      position: 'bottom'
-	    }
-	  },
-	  {
-	    element: '#elgg-widget-content-9456',
-	    popover: {
-	      title: 'Important person',
-	      description: 'Rate my boobies',
-	      position: 'right'
-	    }
-	  }
-	]);
+	driver.defineSteps(elgg.data.tour_guide.steps);
 
 	// Start the introduction
 	driver.start();
 	
+	var report_completed_feature_tour = function (guid) {
+		var ajax = new Ajax(false);
+		
+		ajax.action('feature_tour/complete', {
+			data: {
+				guid: guid
+			},
+			showErrorMessages: false,
+			showSuccessMessages: false,
+		});
+	};
 });

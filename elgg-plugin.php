@@ -7,20 +7,19 @@ if (is_dir(__DIR__ . '/vendor')) {
 	$composer_path = __DIR__ . '/';
 }
 
-// elgg_require_js('tour_guide/site');
-
 return [
 	'bootstrap' => Bootstrap::class,
 	'entities' => [
 		[
 			'type' => 'object',
-			'subtype' => \FeatureTour::SUBTYPE,
+			'subtype' => 'feature_tour',
 			'class' => \FeatureTour::class,
 		],
 	],
 	'actions' => [
-		'feature_tour/save' => ['access' => 'admin'],
+		'feature_tour/complete' => [],
 		'feature_tour/reset' => ['access' => 'admin'],
+		'feature_tour/save' => ['access' => 'admin'],
 	],
 	'views' => [
 		'default' => [
@@ -30,6 +29,9 @@ return [
 	'view_extensions' => [
 		'elgg.css' => [
 			'tour_guide/driver/driver.min.css' => [],
+		],
+		'page/elements/header' => [
+			'tour_guide/check_tours' => [],
 		],
 	],
 	'hooks' => [
