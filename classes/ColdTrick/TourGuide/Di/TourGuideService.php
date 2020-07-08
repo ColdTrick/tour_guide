@@ -4,6 +4,7 @@ namespace ColdTrick\TourGuide\Di;
 
 use Elgg\Di\ServiceFacade;
 use Elgg\Router\Route;
+use Elgg\Database\Clauses\OrderByClause;
 
 class TourGuideService {
 
@@ -46,32 +47,24 @@ class TourGuideService {
 		
 		$tours = $this->getToursForRoute($route->getName());
 		
-		return [
-			[
-				'element' => '.elgg-form-search',
-				'popover' => [
-					'title' => 'Search',
-					'description' => 'You can search here',
-					'position' => 'bottom',
-				],
-			],
-			[
-				'element' => '.elgg-page-topbar',
-				'popover' => [
-					'title' => 'Topbar',
-					'description' => 'Ohh nice menu mister',
-					'position' => 'bottom',
-				],
-			],
-			[
-				'element' => '#elgg-widget-6729',
-				'popover' => [
-					'title' => 'Important person',
-					'description' => 'Rate my boobies',
-					'position' => 'right',
-				],
-			],
-		];
+		$steps = [];
+		foreach ($tours as $tour) {
+			if (check_entity_relationship($tour->guid, 'done', $this->session->getLoggedInUserGuid())) {
+				continue;
+			}
+			
+			$tour_steps = (array) $tour->steps_config;
+			foreach ($tour_steps as $tour_step) {
+				$steps[] = json_decode($tour_step, true);
+			}
+			
+			$last_id = count($steps) - 1;
+			$steps[$last_id] += [
+				'guid' => $tour->guid,
+			];
+		}
+		
+		return $steps;
 	}
 	
 	/**
@@ -92,6 +85,7 @@ class TourGuideService {
 					'value' => $route_name,
 				],
 			],
+			'order_by' => new OrderByClause('e.time_created', 'asc'),
 		]);
 	}
 }

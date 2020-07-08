@@ -6,6 +6,7 @@ return [
 	'collection:object:feature_tour' => "Feature Tours",
 
 	'object:feature_tour:title' => "Feature Tour for: %s",
+	'object:feature_tour:complete_count' => "Completed: %d",
 	
 	'admin:administer_utilities:feature_tours' => "Feature Tours",
 	
