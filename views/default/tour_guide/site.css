@@ -1,0 +1,5 @@
+.tour-guide-feature-tour-step {
+	> .elgg-body {
+		display: none;
+	}
+}

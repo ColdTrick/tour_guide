@@ -10,6 +10,9 @@ elgg_register_menu_item('title', [
 		'elgg-button-action',
 		'elgg-lightbox',
 	],
+	'data-colorbox-opts' => json_encode([
+		'width' => '800px',
+	]),
 ]);
 
 echo elgg_view('output/longtext', [

@@ -21,4 +21,26 @@ if (!empty($guid)) {
 $tour->title = $title;
 $tour->route_name = $route_name;
 
+$steps = get_input('steps', []);
+
+$steps_config = [];
+if (isset($steps['element'])) {
+	foreach ($steps['element'] as $index => $value) {
+		if (empty($value)) {
+			continue;
+		}
+		
+		$steps_config[] = json_encode([
+			'element' => $value,
+			'popover' => [
+				'title' => elgg_extract($index, $steps['title']),
+				'description' => elgg_extract($index, $steps['description']),
+				'position' => elgg_extract($index, $steps['position']),
+			],
+		]);
+	}
+}
+
+$tour->steps_config = $steps_config;
+
 return elgg_ok_response('', elgg_echo('save:success'));

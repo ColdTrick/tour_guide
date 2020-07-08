@@ -25,6 +25,9 @@ class Menus {
 			'href' => 'admin/administer_utilities/feature_tours',
 			'parent_name' => 'administer_utilities',
 			'section' => 'administer',
+			'data-colorbox-opts' => json_encode([
+				'width' => '800px',
+			]),
 		]);
 		
 		return $result;
@@ -54,6 +57,9 @@ class Menus {
 			'link_class' => [
 				'elgg-lightbox',
 			],
+			'data-colorbox-opts' => json_encode([
+				'width' => '800px',
+			]),
 		]);
 		
 		$result[] = \ElggMenuItem::factory([
