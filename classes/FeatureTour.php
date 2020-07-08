@@ -49,4 +49,17 @@ class FeatureTour extends ElggObject {
 	public function canComment($user_guid = 0, $default = null) {
 		return false;
 	}
+	
+	/**
+	 * Return the number of users who have completed this tour
+	 *
+	 * @return int
+	 */
+	public function getCompleteCount() {
+		return elgg_get_relationships([
+			'count' => true,
+			'relationship_guid' => $this->guid,
+			'relationship' => 'done',
+		]);
+	}
 }
