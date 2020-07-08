@@ -10,6 +10,8 @@ define(function(require) {
 		closeBtnText: elgg.echo('close'),
 		nextBtnText: elgg.echo('next'),
 		prevBtnText: elgg.echo('previous'),
+		padding: 0,
+		opacity: .5,
 		onNext: function (step) {
 			if (step.options.guid) {
 				report_completed_feature_tour(step.options.guid);
