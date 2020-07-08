@@ -40,11 +40,14 @@ return [
 	],
 	'hooks' => [
 		'register' => [
+			'menu:entity' => [
+				__NAMESPACE__ . '\Menus::registerEntityMenu' => [],
+			],
 			'menu:page' => [
 				__NAMESPACE__ . '\Menus::registerAdminPageMenu' => [],
 			],
-			'menu:entity' => [
-				__NAMESPACE__ . '\Menus::registerEntityMenu' => [],
+			'menu:topbar' => [
+				__NAMESPACE__ . '\Menus::registerAccountMenu' => [],
 			],
 		],
 		'view_vars' => [
