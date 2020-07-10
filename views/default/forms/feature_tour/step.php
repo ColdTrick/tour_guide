@@ -57,10 +57,7 @@ $menu = elgg_view_menu('steps_edit', [
 	],
 ]);
 
-$module_title = elgg_echo('step');
-if ($step && !empty($step->title)) {
-	$module_title = $step->title;
-}
+$module_title = elgg_extract('title', $step) ?: elgg_echo('step');
 
 $classes = ['tour-guide-feature-tour-step'];
 if ($is_template) {

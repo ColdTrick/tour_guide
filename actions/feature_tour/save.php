@@ -21,7 +21,7 @@ if (!empty($guid)) {
 $tour->title = $title;
 $tour->route_name = $route_name;
 
-$steps = get_input('steps', []);
+$steps = get_input('steps', [], false); // do not filter to allow correct selectors
 
 $steps_config = [];
 if (isset($steps['element'])) {
@@ -33,8 +33,8 @@ if (isset($steps['element'])) {
 		$steps_config[] = json_encode([
 			'element' => $value,
 			'popover' => [
-				'title' => elgg_extract($index, $steps['title']),
-				'description' => elgg_extract($index, $steps['description']),
+				'title' => filter_tags(elgg_extract($index, $steps['title'])),
+				'description' => filter_tags(elgg_extract($index, $steps['description'])),
 				'position' => elgg_extract($index, $steps['position']),
 			],
 		]);

@@ -34,9 +34,9 @@ class Forms {
 				$config = json_decode($config, true);
 				$steps[] = [
 					'element' => $config['element'],
-					'title' => $config['title'],
-					'description' => $config['description'],
-					'position' => $config['position'],
+					'title' => $config['popover']['title'],
+					'description' => $config['popover']['description'],
+					'position' => $config['popover']['position'],
 				];
 			}
 
