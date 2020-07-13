@@ -3,7 +3,8 @@
 /**
  * Custom class for Feature Tour
  *
- * @property string $route_name name of the route for this tour
+ * @property string $route_name   name of the route for this tour
+ * @property array  $steps_config tour steps configuration (used for driver.js)
  */
 class FeatureTour extends ElggObject {
 	
@@ -61,5 +62,26 @@ class FeatureTour extends ElggObject {
 			'relationship_guid' => $this->guid,
 			'relationship' => 'done',
 		]);
+	}
+	
+	/**
+	 * Return the step configuration
+	 *
+	 * @param bool $json_decoded should the result be json decode (default: true)
+	 *
+	 * @return array
+	 */
+	public function getStepConfiguration(bool $json_decoded = true) {
+		$config = (array) $this->steps_config;
+		if (!$json_decoded) {
+			return $config;
+		}
+		
+		$result = [];
+		foreach ($config as $step) {
+			$result[] = json_decode($step, true);
+		}
+		
+		return $result;
 	}
 }

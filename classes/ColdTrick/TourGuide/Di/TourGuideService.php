@@ -53,11 +53,8 @@ class TourGuideService {
 				continue;
 			}
 			
-			$tour_steps = (array) $tour->steps_config;
-			foreach ($tour_steps as $tour_step) {
-				$steps[] = json_decode($tour_step, true);
-			}
-			
+			$steps = array_merge($steps, $tour->getStepConfiguration());
+
 			$last_id = count($steps) - 1;
 			$steps[$last_id] += [
 				'guid' => $tour->guid,

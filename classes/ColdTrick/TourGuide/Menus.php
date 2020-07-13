@@ -65,6 +65,13 @@ class Menus {
 		]);
 		
 		$result[] = \ElggMenuItem::factory([
+			'name' => 'export',
+			'icon' => 'download',
+			'text' => elgg_echo('export'),
+			'href' => elgg_generate_action_url('feature_tour/export', ['guid' => $entity->guid]),
+		]);
+		
+		$result[] = \ElggMenuItem::factory([
 			'name' => 'reset',
 			'icon' => 'refresh',
 			'text' => elgg_echo('reset'),

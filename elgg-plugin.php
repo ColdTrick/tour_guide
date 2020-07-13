@@ -18,6 +18,7 @@ return [
 	],
 	'actions' => [
 		'feature_tour/complete' => [],
+		'feature_tour/export' => ['access' => 'admin'],
 		'feature_tour/reset' => ['access' => 'admin'],
 		'feature_tour/save' => ['access' => 'admin'],
 	],

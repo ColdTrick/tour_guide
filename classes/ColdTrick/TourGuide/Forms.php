@@ -29,9 +29,8 @@ class Forms {
 			}
 			
 			$steps = [];
-			$steps_config = $entity->steps_config ?: [];
+			$steps_config = $entity->getStepConfiguration();
 			foreach ($steps_config as $config) {
-				$config = json_decode($config, true);
 				$steps[] = [
 					'element' => $config['element'],
 					'title' => $config['popover']['title'],
