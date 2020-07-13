@@ -2,13 +2,12 @@
 
 namespace ColdTrick\TourGuide\Di;
 
-use Elgg\Di\ServiceFacade;
-use Elgg\Router\Route;
 use Elgg\Database\Clauses\OrderByClause;
 use Elgg\Database\QueryBuilder;
 use Elgg\Database\Clauses\JoinClause;
-use Elgg\Database\Select;
 use Elgg\Database\Clauses\SelectClause;
+use Elgg\Di\ServiceFacade;
+use Elgg\Router\Route;
 
 class TourGuideService {
 
@@ -49,7 +48,6 @@ class TourGuideService {
 			return [];
 		}
 		
-		$tours = [];
 		if (!$show_completed_tours) {
 			$pending = $this->session->get('tour_guide');
 			if (!isset($pending)) {
