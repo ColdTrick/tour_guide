@@ -72,6 +72,19 @@ class Menus {
 		]);
 		
 		$result[] = \ElggMenuItem::factory([
+			'name' => 'import',
+			'icon' => 'upload',
+			'text' => elgg_echo('import'),
+			'href' => "ajax/form/feature_tour/import?guid={$entity->guid}",
+			'link_class' => [
+				'elgg-lightbox',
+			],
+			'data-colorbox-opts' => json_encode([
+				'width' => '800px',
+			]),
+		]);
+		
+		$result[] = \ElggMenuItem::factory([
 			'name' => 'reset',
 			'icon' => 'refresh',
 			'text' => elgg_echo('reset'),

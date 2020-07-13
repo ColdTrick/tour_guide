@@ -2,7 +2,7 @@
 
 $title = get_input('title');
 $route_name = get_input('route_name');
-$published = (int) get_input('published');
+$published = (bool) get_input('published');
 
 if (empty($route_name)) {
 	return elgg_error_response(elgg_echo('error:missing_data'));
