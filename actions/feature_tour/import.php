@@ -47,7 +47,7 @@ foreach ($steps as $step) {
 $entity->steps_config = $steps_config;
 
 if (!$entity->save()) {
-	return elgg_error_response(elgg_echo('import failed'));
+	return elgg_error_response(elgg_echo('tour_guide:action:import:failed'));
 }
 
-return elgg_ok_response('', elgg_echo('import success'));
+return elgg_ok_response('', elgg_echo('tour_guide:action:import:success'));
