@@ -2,6 +2,7 @@
 
 $title = get_input('title');
 $route_name = get_input('route_name');
+$published = (int) get_input('published');
 
 if (empty($route_name)) {
 	return elgg_error_response(elgg_echo('error:missing_data'));
@@ -20,6 +21,7 @@ if (!empty($guid)) {
 
 $tour->title = $title;
 $tour->route_name = $route_name;
+$tour->published = $published;
 
 $steps = get_input('steps', [], false); // do not filter to allow correct selectors
 

@@ -17,6 +17,7 @@ if (!$entity instanceof FeatureTour || !$entity->canEdit()) {
 $result = json_encode([
 	'route_name' => $entity->route_name,
 	'title' => $entity->title,
+	'published' => $entity->published,
 	'steps_config' => $entity->getStepConfiguration(),
 ], JSON_PRETTY_PRINT);
 

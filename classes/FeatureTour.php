@@ -3,6 +3,7 @@
 /**
  * Custom class for Feature Tour
  *
+ * @property int    $published    is the tour published to all users (1: yes, 0: no)
  * @property string $route_name   name of the route for this tour
  * @property array  $steps_config tour steps configuration (used for driver.js)
  */

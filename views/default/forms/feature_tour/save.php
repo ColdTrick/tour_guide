@@ -21,6 +21,15 @@ echo elgg_view_field([
 	'value' => elgg_extract('title', $vars),
 ]);
 
+echo elgg_view_field([
+	'#type' => 'checkbox',
+	'#label' => elgg_echo('Published'),
+	'name' => 'published',
+	'value' => 1,
+	'checked' => (bool) elgg_extract('published', $vars),
+	'switch' => true,
+]);
+
 $steps = (array) elgg_extract('steps', $vars, []);
 
 $steps_list = '';

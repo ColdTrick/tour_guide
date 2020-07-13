@@ -20,6 +20,7 @@ class Forms {
 			'guid' => null,
 			'title' => null,
 			'route_name' => null,
+			'published' => 0,
 		];
 		
 		// edit

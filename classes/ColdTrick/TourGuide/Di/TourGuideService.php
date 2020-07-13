@@ -49,6 +49,10 @@ class TourGuideService {
 		
 		$steps = [];
 		foreach ($tours as $tour) {
+			if (!$tour->published) {
+				continue;
+			}
+			
 			if (check_entity_relationship($tour->guid, 'done', $this->session->getLoggedInUserGuid())) {
 				continue;
 			}

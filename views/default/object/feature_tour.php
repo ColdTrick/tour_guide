@@ -17,6 +17,12 @@ $imprint[] = [
 	'content' => elgg_echo('object:feature_tour:complete_count', [$entity->getCompleteCount()]),
 ];
 
+if (!$entity->published) {
+	$imprint[] = [
+		'content' => elgg_echo('status:unpublished'),
+	];
+}
+
 $params = [
 	'byline' => false,
 	'icon' => false,
