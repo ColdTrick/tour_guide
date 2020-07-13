@@ -16,4 +16,4 @@ if (!$entity instanceof FeatureTour || !$entity->canEdit()) {
 
 remove_entity_relationships($entity->guid, 'done');
 
-return elgg_ok_response('', elgg_echo('tour_guid:action:reset:success'));
+return elgg_ok_response('', elgg_echo('tour_guide:action:reset:success'));
