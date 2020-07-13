@@ -64,6 +64,8 @@ $classes = ['tour-guide-feature-tour-step'];
 if ($is_template) {
 	$classes[] = 'tour-guide-feature-tour-step-template';
 	$classes[] = 'hidden';
+} elseif ($step) {
+	$classes[] = 'tour-guide-feature-tour-step-existing';
 }
 
 echo elgg_view_module('info', $module_title, $result, [
