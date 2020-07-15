@@ -121,8 +121,6 @@ class Menus {
 			'text' => elgg_echo('add:object:feature_tour'),
 			'href' => 'ajax/form/feature_tour/save?route_name=' . $route->getName(),
 			'link_class' => [
-				'elgg-button',
-				'elgg-button-action',
 				'elgg-lightbox',
 			],
 			'data-colorbox-opts' => json_encode([
