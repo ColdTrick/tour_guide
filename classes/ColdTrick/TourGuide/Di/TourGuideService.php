@@ -251,6 +251,10 @@ class TourGuideService {
 			}
 		}
 		
+		if (count($steps) == 1) {
+			$steps[0]['mark_completed_on_reset'] = true;
+		}
+		
 		return $steps;
 	}
 }

@@ -16,6 +16,11 @@ define(function(require) {
 			if (step.options.guid) {
 				report_completed_feature_tour(step.options.guid);
 			}
+		},
+		onReset: function (step) {
+			if (step.options.mark_completed_on_reset && step.options.guid) {
+				report_completed_feature_tour(step.options.guid);
+			}
 		}
 	});
 	
