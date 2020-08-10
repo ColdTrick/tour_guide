@@ -49,7 +49,6 @@ if (empty($steps)) {
 $steps_id = uniqid('steps_');
 echo elgg_format_element('div', ['id' => $steps_id, 'class' => 'tour-guide-feature-tour-steps'], $steps_list);
 
-echo elgg_view('forms/feature_tour/step', ['template' => true]);
 echo elgg_view_field([
 	'#type' => 'button',
 	'icon' => 'plus',

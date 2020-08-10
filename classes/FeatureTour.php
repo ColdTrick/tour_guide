@@ -41,6 +41,10 @@ class FeatureTour extends ElggObject {
 	 * {@inheritDoc}
 	 */
 	public function getURL() {
+		if (elgg_is_admin_logged_in()) {
+			return elgg_normalize_url("admin/administer_utilities/feature_tour/save?guid={$this->guid}");
+		}
+		
 		return false;
 	}
 	

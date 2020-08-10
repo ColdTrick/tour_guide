@@ -19,7 +19,7 @@ class Forms {
 		$result = [
 			'guid' => null,
 			'title' => null,
-			'route_name' => null,
+			'route_name' => get_input('route_name'),
 			'published' => 0,
 		];
 		

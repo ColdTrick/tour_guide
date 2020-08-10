@@ -23,7 +23,6 @@ $result .= elgg_view_field([
 	'#label' => elgg_echo('description'),
 	'name' => 'steps[description][]',
 	'value' => elgg_extract('description', $step),
-	'visual' => false,
 ]);
 
 $result .= elgg_view_field([
@@ -63,7 +62,6 @@ $module_title = elgg_extract('title', $step) ?: elgg_echo('tour_guide:forms:save
 $classes = ['tour-guide-feature-tour-step'];
 if ($is_template) {
 	$classes[] = 'tour-guide-feature-tour-step-template';
-	$classes[] = 'hidden';
 } elseif ($step) {
 	$classes[] = 'tour-guide-feature-tour-step-existing';
 }

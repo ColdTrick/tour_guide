@@ -27,9 +27,6 @@ class Menus {
 			'href' => 'admin/administer_utilities/feature_tours',
 			'parent_name' => 'administer_utilities',
 			'section' => 'administer',
-			'data-colorbox-opts' => json_encode([
-				'width' => '800px',
-			]),
 		]);
 		
 		return $result;
@@ -55,13 +52,7 @@ class Menus {
 			'name' => 'edit',
 			'icon' => 'edit',
 			'text' => elgg_echo('edit'),
-			'href' => "ajax/form/feature_tour/save?guid={$entity->guid}",
-			'link_class' => [
-				'elgg-lightbox',
-			],
-			'data-colorbox-opts' => json_encode([
-				'width' => '800px',
-			]),
+			'href' => "admin/administer_utilities/feature_tour/save?guid={$entity->guid}",
 		]);
 		
 		$result[] = \ElggMenuItem::factory([
@@ -119,13 +110,8 @@ class Menus {
 			'name' => 'feature_tour',
 			'icon' => 'plus',
 			'text' => elgg_echo('add:object:feature_tour'),
-			'href' => 'ajax/form/feature_tour/save?route_name=' . $route->getName(),
-			'link_class' => [
-				'elgg-lightbox',
-			],
-			'data-colorbox-opts' => json_encode([
-				'width' => '800px',
-			]),
+			'href' => 'admin/administer_utilities/feature_tour/save?route_name=' . $route->getName(),
+			'target' => '_blank',
 			'parent_name' => 'account',
 			'section' => 'alt',
 		]);

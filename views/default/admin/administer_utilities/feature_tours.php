@@ -4,15 +4,11 @@ elgg_register_menu_item('title', [
 	'name' => 'add',
 	'icon' => 'plus',
 	'text' => elgg_echo('add'),
-	'href' => 'ajax/form/feature_tour/save',
+	'href' => 'admin/administer_utilities/feature_tour/save',
 	'link_class' => [
 		'elgg-button',
 		'elgg-button-action',
-		'elgg-lightbox',
 	],
-	'data-colorbox-opts' => json_encode([
-		'width' => '800px',
-	]),
 ]);
 
 elgg_register_menu_item('title', [

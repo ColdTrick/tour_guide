@@ -12,6 +12,6 @@ class Bootstrap extends DefaultPluginBootstrap {
 	 */
 	public function init() {
 		elgg_register_ajax_view('forms/feature_tour/import');
-		elgg_register_ajax_view('forms/feature_tour/save');
+		elgg_register_ajax_view('forms/feature_tour/step');
 	}
 }
