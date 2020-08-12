@@ -243,6 +243,15 @@ class TourGuideService {
 			
 			$steps = array_merge($steps, $entity->getStepConfiguration());
 			
+			// wrap description
+			foreach ($steps as $index => $step) {
+				if (!isset($step['popover']['description'])) {
+					continue;
+				}
+				
+				$steps[$index]['popover']['description'] = elgg_view('output/longtext', ['value' => $step['popover']['description']]);
+			}
+			
 			if ($track_completed) {
 				$last_id = count($steps) - 1;
 				$steps[$last_id] += [
