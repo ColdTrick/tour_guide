@@ -35,6 +35,15 @@ echo elgg_view_field([
 	'switch' => true,
 ]);
 
+echo elgg_view_field([
+	'#type' => 'checkbox',
+	'#label' => elgg_echo('tour_guide:forms:save:required'),
+	'name' => 'required',
+	'value' => 1,
+	'checked' => (bool) elgg_extract('required', $vars),
+	'switch' => true,
+]);
+
 $steps = (array) elgg_extract('steps', $vars, []);
 
 $steps_list = '';

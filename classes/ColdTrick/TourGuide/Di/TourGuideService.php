@@ -236,12 +236,21 @@ class TourGuideService {
 	protected function getStepsFromFeatureTours(array $entities = [], bool $track_completed = true) {
 		$steps = [];
 		
+		$required = false;
+		
+		
 		foreach ($entities as $entity) {
 			if (!$entity instanceof \FeatureTour) {
 				continue;
 			}
 			
+			if ($entity->required) {
+				$required = true;
+			}
+			
 			$steps = array_merge($steps, $entity->getStepConfiguration());
+			
+			$finish_early = (bool) elgg_get_plugin_setting('finish_early', 'tour_guide');
 			
 			// wrap description
 			foreach ($steps as $index => $step) {
@@ -250,6 +259,11 @@ class TourGuideService {
 				}
 				
 				$steps[$index]['popover']['description'] = elgg_view('output/longtext', ['value' => $step['popover']['description']]);
+				
+				if ($finish_early && !$entity->required) {
+					$steps[$index]['guid'] = $entity->guid;
+					$steps[$index]['mark_completed_on_reset'] = true;
+				}
 			}
 			
 			if ($track_completed) {
@@ -262,6 +276,11 @@ class TourGuideService {
 		
 		if (count($steps) == 1) {
 			$steps[0]['mark_completed_on_reset'] = true;
+		}
+		
+		if ($required && !empty($steps)) {
+			// track if the tour is required in the first step
+			$steps[0]['required'] = true;
 		}
 		
 		return $steps;

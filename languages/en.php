@@ -14,6 +14,9 @@ return [
 	'admin:administer_utilities:feature_tours' => "Feature Tours",
 	'admin:administer_utilities:feature_tour:save' => "Add feature tour",
 	
+	'tour_guide:settings:finish_early' => "Finish Early",
+	'tour_guide:settings:finish_early:help' => "If enabled multi step feature tours will be marked as completed if closed on any step instead of the last.",
+	
 	'tour_guide:feature_tours:intro' => "You can configure tours here that will be shown to your users when they first visit the configured page. Create a new tour from your user account menu on the specific page or create one from scratch use the 'Add' button on top of this page.",
 
 	'tour_guide:forms:import:title' => "Import a feature tour",
@@ -21,6 +24,7 @@ return [
 	'tour_guide:forms:import:file' => "File to import",
 	
 	'tour_guide:forms:save:route_name' => "Route name",
+	'tour_guide:forms:save:required' => "Users are required to finish this tour",
 	'tour_guide:forms:save:steps:add' => "Add step",
 	
 	'tour_guide:forms:save:step' => "Step",

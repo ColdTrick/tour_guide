@@ -21,6 +21,7 @@ class Forms {
 			'title' => null,
 			'route_name' => get_input('route_name'),
 			'published' => 0,
+			'required' => 0,
 		];
 		
 		// edit

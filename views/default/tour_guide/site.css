@@ -3,3 +3,9 @@
 		display: none;
 	}
 }
+
+.feature-tour-required {
+	.driver-close-btn {
+		display: none !important;
+	}
+}

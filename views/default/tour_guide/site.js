@@ -5,11 +5,12 @@ define(function(require) {
 	var Ajax = require('elgg/Ajax');
 	
 	// create new driver
-	var driver = new Driver({
+	var driver_options = {
 		doneBtnText: elgg.echo('complete'),
 		closeBtnText: elgg.echo('close'),
 		nextBtnText: elgg.echo('next'),
 		prevBtnText: elgg.echo('previous'),
+		
 		padding: 0,
 		opacity: .5,
 		onNext: function (step) {
@@ -17,12 +18,22 @@ define(function(require) {
 				report_completed_feature_tour(step.options.guid);
 			}
 		},
-		onReset: function (step) {
+		onReset: function (step, event) {
 			if (step.options.mark_completed_on_reset && step.options.guid) {
 				report_completed_feature_tour(step.options.guid);
 			}
 		}
-	});
+	}
+	
+	if (elgg.data.tour_guide.steps[0].required) {
+		driver_options.allowClose = false;
+		driver_options.keyboardControl = false;
+		if (elgg.data.tour_guide.steps.length > 1) {
+			driver_options.className = 'feature-tour-required';
+		}
+	}
+	
+	var driver = new Driver(driver_options);
 	
 	// Define the steps for introduction
 	driver.defineSteps(elgg.data.tour_guide.steps);

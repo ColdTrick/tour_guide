@@ -9,6 +9,9 @@ if (is_dir(__DIR__ . '/vendor')) {
 
 return [
 	'bootstrap' => Bootstrap::class,
+	'settings' => [
+		'finish_early' => 0,
+	],
 	'entities' => [
 		[
 			'type' => 'object',
