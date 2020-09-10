@@ -18,6 +18,8 @@ return [
 	'tour_guide:settings:finish_early:help' => "If enabled multi step feature tours will be marked as completed if closed on any step instead of the last.",
 	
 	'tour_guide:feature_tours:intro' => "You can configure tours here that will be shown to your users when they first visit the configured page. Create a new tour from your user account menu on the specific page or create one from scratch use the 'Add' button on top of this page.",
+	
+	'tour_guide:feature_tours:close:help' => "Close the tour",
 
 	'tour_guide:forms:import:title' => "Import a feature tour",
 	'tour_guide:forms:import:warning' => "All steps will be overridden",

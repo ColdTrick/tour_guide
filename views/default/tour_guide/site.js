@@ -7,7 +7,7 @@ define(function(require) {
 	// create new driver
 	var driver_options = {
 		doneBtnText: elgg.echo('complete'),
-		closeBtnText: elgg.echo('close'),
+		closeBtnText: '<span title="' + elgg.echo('tour_guide:feature_tours:close:help') + '" style="pointer-events: none">' + elgg.echo('close') + '</span>',
 		nextBtnText: elgg.echo('next'),
 		prevBtnText: elgg.echo('previous'),
 		
