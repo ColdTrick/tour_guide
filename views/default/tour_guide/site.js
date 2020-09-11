@@ -13,6 +13,8 @@ define(function(require) {
 		
 		padding: 0,
 		opacity: .5,
+		allowClose: false,
+		keyboardControl: false,
 		onNext: function (step) {
 			if (step.options.guid) {
 				report_completed_feature_tour(step.options.guid);
@@ -26,8 +28,6 @@ define(function(require) {
 	}
 	
 	if (elgg.data.tour_guide.steps[0].required) {
-		driver_options.allowClose = false;
-		driver_options.keyboardControl = false;
 		if (elgg.data.tour_guide.steps.length > 1) {
 			driver_options.className = 'feature-tour-required';
 		}
