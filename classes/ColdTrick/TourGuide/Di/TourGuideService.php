@@ -238,7 +238,6 @@ class TourGuideService {
 		
 		$required = false;
 		
-		
 		foreach ($entities as $entity) {
 			if (!$entity instanceof \FeatureTour) {
 				continue;
@@ -259,19 +258,28 @@ class TourGuideService {
 				}
 				
 				$steps[$index]['popover']['description'] = elgg_view('output/longtext', ['value' => $step['popover']['description']]);
+				$steps[$index]['popover']['className'] = '';
 				
 				if ($finish_early && !$entity->required) {
 					$steps[$index]['guid'] = $entity->guid;
 					$steps[$index]['mark_completed_on_reset'] = true;
 				}
 			}
-			
+						
 			if ($track_completed) {
 				$last_id = count($steps) - 1;
 				$steps[$last_id] += [
 					'guid' => $entity->guid,
 				];
 			}
+		}
+		
+		if (!empty($steps)) {
+			
+			$last_id = count($steps) - 1;
+			
+			$steps[0]['popover']['className'] .= ' popover-step-first';
+			$steps[$last_id]['popover']['className'] .= ' popover-step-last';
 		}
 		
 		if (count($steps) == 1) {

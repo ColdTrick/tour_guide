@@ -9,3 +9,9 @@
 		display: none !important;
 	}
 }
+
+#driver-popover-item.popover-step-last:not(.popover-step-first) {
+	.driver-close-btn {
+		display: none;
+	}
+}
