@@ -17,6 +17,8 @@ define(function(require) {
 		keyboardControl: false,
 		onNext: function (step) {
 			if (step.options.guid) {
+				step.options.mark_completed_on_reset = false; // mark as false to prevent double submission
+				
 				report_completed_feature_tour(step.options.guid);
 			}
 		},
