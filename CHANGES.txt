@@ -1,6 +1,10 @@
 Version history
 ===============
 
+1.0.1 (2021-01-19):
+
+- fixed: prevent double submission on final step of a multistep tour
+
 1.0 (2020-09-15):
 
 - first release
