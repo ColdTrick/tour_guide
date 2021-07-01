@@ -61,7 +61,7 @@ class FeatureTour extends ElggObject {
 	 *
 	 * @return int
 	 */
-	public function getCompleteCount() {
+	public function getCompleteCount(): int {
 		return elgg_get_relationships([
 			'count' => true,
 			'relationship_guid' => $this->guid,
@@ -76,7 +76,7 @@ class FeatureTour extends ElggObject {
 	 *
 	 * @return array
 	 */
-	public function getStepConfiguration(bool $json_decoded = true) {
+	public function getStepConfiguration(bool $json_decoded = true): array {
 		$config = (array) $this->steps_config;
 		if (!$json_decoded) {
 			return $config;

@@ -8,7 +8,9 @@ if (is_dir(__DIR__ . '/vendor')) {
 }
 
 return [
-	'bootstrap' => Bootstrap::class,
+	'plugin' => [
+		'version' => '1.0.1',
+	],
 	'settings' => [
 		'finish_early' => 0,
 	],
@@ -17,6 +19,24 @@ return [
 			'type' => 'object',
 			'subtype' => 'feature_tour',
 			'class' => \FeatureTour::class,
+		],
+	],
+	'hooks' => [
+		'register' => [
+			'menu:entity' => [
+				__NAMESPACE__ . '\Menus::registerEntityMenu' => [],
+			],
+			'menu:page' => [
+				__NAMESPACE__ . '\Menus::registerAdminPageMenu' => [],
+			],
+			'menu:topbar' => [
+				__NAMESPACE__ . '\Menus::registerAccountMenu' => [],
+			],
+		],
+		'view_vars' => [
+			'forms/feature_tour/save' => [
+				__NAMESPACE__ . '\Forms::prepareFeatureTourForm' => [],
+			],
 		],
 	],
 	'actions' => [
@@ -44,22 +64,8 @@ return [
 			'tour_guide/check_tours' => [],
 		],
 	],
-	'hooks' => [
-		'register' => [
-			'menu:entity' => [
-				__NAMESPACE__ . '\Menus::registerEntityMenu' => [],
-			],
-			'menu:page' => [
-				__NAMESPACE__ . '\Menus::registerAdminPageMenu' => [],
-			],
-			'menu:topbar' => [
-				__NAMESPACE__ . '\Menus::registerAccountMenu' => [],
-			],
-		],
-		'view_vars' => [
-			'forms/feature_tour/save' => [
-				__NAMESPACE__ . '\Forms::prepareFeatureTourForm' => [],
-			],
-		],
+	'view_options' => [
+		'forms/feature_tour/import' => ['ajax' => true],
+		'forms/feature_tour/step' => ['ajax' => true],
 	],
 ];

@@ -6,8 +6,8 @@ use Elgg\Database\Clauses\OrderByClause;
 use Elgg\Database\QueryBuilder;
 use Elgg\Database\Clauses\JoinClause;
 use Elgg\Database\Clauses\SelectClause;
-use Elgg\Di\ServiceFacade;
 use Elgg\Router\Route;
+use Elgg\Traits\Di\ServiceFacade;
 
 class TourGuideService {
 

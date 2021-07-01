@@ -1,8 +1,4 @@
-define(function(require) {
-	
-	var Driver = require('tour_guide/driver/driver.min'); 
-	var elgg = require('elgg');
-	var Ajax = require('elgg/Ajax');
+define(['tour_guide/driver/driver.min', 'elgg', 'elgg/Ajax'], function(Driver, elgg, Ajax) {
 	
 	// create new driver
 	var driver_options = {

@@ -1,7 +1,4 @@
-define(function(require) {
-	var $ = require('jquery');
-	var Ajax = require('elgg/Ajax');
-	
+define(['jquery', 'elgg/Ajax'], function($, Ajax) {	
 	$(document).on('click', '.tour-guide-feature-tour-step-remove', function() {
 		$(this).parents('.elgg-module').remove();
 	});

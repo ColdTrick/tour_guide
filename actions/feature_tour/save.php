@@ -47,4 +47,4 @@ if (isset($steps['element'])) {
 
 $tour->steps_config = $steps_config;
 
-return elgg_ok_response('', elgg_echo('save:success'));
+return elgg_ok_response('', elgg_echo('save:success'), $tour->getURL());

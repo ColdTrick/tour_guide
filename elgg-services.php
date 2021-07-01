@@ -3,6 +3,6 @@
 use ColdTrick\TourGuide\Di\TourGuideService;
 
 return [
-	TourGuideService::name() => Di\object(TourGuideService::class)
+	TourGuideService::name() => Di\create(TourGuideService::class)
 		->constructor(Di\get('session')),
 ];
