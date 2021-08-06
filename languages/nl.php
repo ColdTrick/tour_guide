@@ -1,10 +1,15 @@
 <?php
 /**
- * This file was created by Translation Editor v7.0.4
- * On 2020-07-13 14:11
+ * This file was created by Translation Editor v8.0
+ * On 2021-08-06 10:23
  */
 
 return array (
+  'admin:administer_utilities:feature_tour:save' => 'Feature tour toevoegen',
+  'tour_guide:settings:finish_early' => 'Voortijdig afronden',
+  'tour_guide:settings:finish_early:help' => 'Indien toegestaan kan een feature tour met meerdere stappen voortijdig afgerond worden ',
+  'tour_guide:feature_tours:close:help' => 'Tour afsluiten',
+  'tour_guide:forms:save:required' => 'Gebruikers moeten deze tour verplicht afronden',
   'item:object:feature_tour' => 'Feature Tour',
   'collection:object:feature_tour' => 'Feature Tours',
   'object:feature_tour:title' => 'Feature Tour voor: %s',
