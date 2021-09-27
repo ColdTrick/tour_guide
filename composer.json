@@ -14,8 +14,7 @@
 		"npm-asset/driver.js": "~0.9.0"
 	},
 	"require-dev": {
-		"coldtrick/sniffs": "dev-master",
-		"coldtrick/releases": "dev-master"
+		"coldtrick/sniffs": "dev-master"
 	},
 	"repositories": [
 		{
