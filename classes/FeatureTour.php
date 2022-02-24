@@ -30,8 +30,9 @@ class FeatureTour extends ElggObject {
 	 * {@inheritDoc}
 	 */
 	public function getDisplayName() {
-		if (!empty($this->title)) {
-			return $this->title;
+		$title = parent::getDisplayName();
+		if (!empty($title)) {
+			return $title;
 		}
 		
 		return elgg_echo('object:feature_tour:title', [$this->route_name]);
