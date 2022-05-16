@@ -1,11 +1,11 @@
-define(['tour_guide/driver/driver.min', 'elgg', 'elgg/Ajax'], function(Driver, elgg, Ajax) {
+define(['tour_guide/driver/driver.min', 'elgg', 'elgg/i18n', 'elgg/Ajax'], function(Driver, elgg, i18n, Ajax) {
 	
 	// create new driver
 	var driver_options = {
-		doneBtnText: elgg.echo('complete'),
-		closeBtnText: '<span onclick="$(this).parent().click()" title="' + elgg.echo('tour_guide:feature_tours:close:help') + '">' + elgg.echo('close') + '</span>',
-		nextBtnText: elgg.echo('next'),
-		prevBtnText: elgg.echo('previous'),
+		doneBtnText: i18n.echo('complete'),
+		closeBtnText: '<span onclick="$(this).parent().click()" title="' + i18n.echo('tour_guide:feature_tours:close:help') + '">' + i18n.echo('close') + '</span>',
+		nextBtnText: i18n.echo('next'),
+		prevBtnText: i18n.echo('previous'),
 		
 		padding: 0,
 		opacity: .5,
