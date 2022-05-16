@@ -19,6 +19,9 @@ return [
 			'type' => 'object',
 			'subtype' => 'feature_tour',
 			'class' => \FeatureTour::class,
+			'capabilities' => [
+				'commentable' => false,
+			],
 		],
 	],
 	'hooks' => [
