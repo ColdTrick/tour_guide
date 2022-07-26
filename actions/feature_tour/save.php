@@ -37,8 +37,8 @@ if (isset($steps['element'])) {
 		$steps_config[] = json_encode([
 			'element' => $value,
 			'popover' => [
-				'title' => filter_tags(elgg_extract($index, $steps['title'])),
-				'description' => filter_tags(elgg_extract($index, $steps['description'])),
+				'title' => elgg_sanitize_input(elgg_extract($index, $steps['title'])),
+				'description' => elgg_sanitize_input(elgg_extract($index, $steps['description'])),
 				'position' => elgg_extract($index, $steps['position']),
 			],
 		]);

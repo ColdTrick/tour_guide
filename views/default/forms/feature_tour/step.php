@@ -6,7 +6,7 @@ $is_template = elgg_extract('template', $vars);
 $result = elgg_view_field([
 	'#type' => 'text',
 	'#label' => elgg_echo('tour_guide:forms:save:step:element'),
-	'#help' => parse_urls(elgg_echo('tour_guide:forms:save:step:element:help')),
+	'#help' => elgg_parse_urls(elgg_echo('tour_guide:forms:save:step:element:help')),
 	'name' => 'steps[element][]',
 	'value' => elgg_extract('element', $step),
 ]);

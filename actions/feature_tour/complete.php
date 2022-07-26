@@ -14,7 +14,7 @@ if (!$entity instanceof FeatureTour) {
 
 $user = elgg_get_logged_in_user_entity();
 
-if (check_entity_relationship($entity->guid, 'done', $user->guid)) {
+if ($entity->hasRelationship($user->guid, 'done')) {
 	// already completed
 	return elgg_ok_response(elgg_echo('save:success'));
 }
