@@ -32,6 +32,7 @@ return [
 	'tour_guide:forms:save:step' => "Step",
 	'tour_guide:forms:save:step:element' => "Element",
 	'tour_guide:forms:save:step:element:help' => "Enter CSS selector that will be highlighted on the page. Visit https://kamranahmed.info/driver.js/ for more information.",
+	'tour_guide:forms:save:step:stage_background' => "Highlighted item background color",
 	'tour_guide:forms:save:step:position' => "Position",
 	'tour_guide:forms:save:step:toggle' => "Toggle",
 	'tour_guide:forms:save:step:remove' => "Remove step",

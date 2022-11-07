@@ -12,6 +12,13 @@ $result = elgg_view_field([
 ]);
 
 $result .= elgg_view_field([
+	'#type' => 'color',
+	'#label' => elgg_echo('tour_guide:forms:save:step:stage_background'),
+	'name' => 'steps[stageBackground][]',
+	'value' => elgg_extract('stageBackground', $step, '#FFFFFF'),
+]);
+
+$result .= elgg_view_field([
 	'#type' => 'text',
 	'#label' => elgg_echo('title'),
 	'name' => 'steps[title][]',
