@@ -1,6 +1,11 @@
 Version history
 ===============
 
+4.1 (2022-11-16):
+
+- added: ability to config stage background color per step
+- fixed: steps are now sortable again
+
 4.0 (2022-08-24):
 
 - changed: updated for Elgg 4.3
