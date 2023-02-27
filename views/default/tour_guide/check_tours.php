@@ -27,9 +27,9 @@ if (empty($steps)) {
 
 elgg_require_js('tour_guide/site');
 
-elgg_register_plugin_hook_handler('elgg.data', 'page', function(\Elgg\Hook $hook) use ($steps) {
+elgg_register_event_handler('elgg.data', 'page', function(\Elgg\Event $event) use ($steps) {
 	/* @var $data array */
-	$data = $hook->getValue();
+	$data = $event->getValue();
 	
 	$data['tour_guide']['steps'] = $steps;
 	

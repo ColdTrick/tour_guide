@@ -4,29 +4,31 @@ namespace ColdTrick\TourGuide;
 
 use Elgg\Router\Route;
 
+/**
+ * Menu callbacks
+ */
 class Menus {
 	
 	/**
 	 * Add menu items to the page menu
 	 *
-	 * @param \Elgg\Hook $hook 'register', 'menu:page'
+	 * @param \Elgg\Event $event 'register', 'menu:admin_header'
 	 *
 	 * @return void|\ElggMenuItem[]
 	 */
-	public static function registerAdminPageMenu(\Elgg\Hook $hook) {
+	public static function registerAdminPageMenu(\Elgg\Event $event) {
 		
-		if (!elgg_is_admin_logged_in() || !elgg_in_context('admin')) {
+		if (!elgg_is_admin_logged_in()) {
 			return;
 		}
 		
-		$result = $hook->getValue();
+		$result = $event->getValue();
 		
 		$result[] = \ElggMenuItem::factory([
 			'name' => 'feature_tours',
 			'text' => elgg_echo('admin:administer_utilities:feature_tours'),
 			'href' => 'admin/administer_utilities/feature_tours',
 			'parent_name' => 'administer_utilities',
-			'section' => 'administer',
 		]);
 		
 		return $result;
@@ -35,18 +37,18 @@ class Menus {
 	/**
 	 * Add menu items to the entity menu
 	 *
-	 * @param \Elgg\Hook $hook 'register', 'menu:entity'
+	 * @param \Elgg\Event $event 'register', 'menu:entity'
 	 *
 	 * @return void|\ElggMenuItem[]
 	 */
-	public static function registerEntityMenu(\Elgg\Hook $hook) {
+	public static function registerEntityMenu(\Elgg\Event $event) {
 
-		$entity = $hook->getEntityParam();
+		$entity = $event->getEntityParam();
 		if (!$entity instanceof \FeatureTour || !$entity->canEdit()) {
 			return;
 		}
 		
-		$result = $hook->getValue();
+		$result = $event->getValue();
 		
 		$result[] = \ElggMenuItem::factory([
 			'name' => 'edit',
@@ -89,11 +91,11 @@ class Menus {
 	/**
 	 * Add menu items to the account menu
 	 *
-	 * @param \Elgg\Hook $hook 'register', 'menu:topbar'
+	 * @param \Elgg\Event $event 'register', 'menu:topbar'
 	 *
 	 * @return void|\ElggMenuItem[]
 	 */
-	public static function registerAccountMenu(\Elgg\Hook $hook) {
+	public static function registerAccountMenu(\Elgg\Event $event) {
 
 		if (!elgg_is_admin_logged_in()) {
 			return;
@@ -104,7 +106,7 @@ class Menus {
 			return;
 		}
 		
-		$result = $hook->getValue();
+		$result = $event->getValue();
 		
 		$result[] = \ElggMenuItem::factory([
 			'name' => 'feature_tour',

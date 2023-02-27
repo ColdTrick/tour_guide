@@ -1,4 +1,4 @@
-define(['jquery', 'elgg/Ajax', 'jquery-ui/widgets/sortable'], function($, Ajax) {	
+define(['jquery', 'elgg/Ajax', 'jquery-ui/widgets/sortable'], function($, Ajax) {
 	$(document).on('click', '.tour-guide-feature-tour-step-remove', function() {
 		$(this).parents('.elgg-module').remove();
 	});
@@ -37,7 +37,7 @@ define(['jquery', 'elgg/Ajax', 'jquery-ui/widgets/sortable'], function($, Ajax) 
 						ckeditor.toggle(ui.item.find('textarea'));
 					});
 				}
-	        },
+			},
 		});
 	};
 	

@@ -2,19 +2,21 @@
 
 namespace ColdTrick\TourGuide;
 
+/**
+ * Form related callbacks
+ */
 class Forms {
 	
 	/**
 	 * Prepares form vars
 	 *
-	 * @param \Elgg\Hook $hook 'view_vars', 'forms/feature_tour/save'
+	 * @param \Elgg\Event $event 'view_vars', 'forms/feature_tour/save'
 	 *
 	 * @return void|\ElggMenuItem[]
 	 */
-	public static function prepareFeatureTourForm(\Elgg\Hook $hook) {
+	public static function prepareFeatureTourForm(\Elgg\Event $event) {
 		
-		$vars = $hook->getValue();
-		$entity = elgg_extract('entity', $vars);
+		$vars = $event->getValue();
 		
 		$result = [
 			'guid' => null,
@@ -25,6 +27,7 @@ class Forms {
 		];
 		
 		// edit
+		$entity = elgg_extract('entity', $vars);
 		if ($entity instanceof \FeatureTour) {
 			foreach ($result as $key => $value) {
 				$result[$key] = $entity->$key;

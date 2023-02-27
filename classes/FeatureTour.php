@@ -12,8 +12,7 @@ class FeatureTour extends ElggObject {
 	const SUBTYPE = 'feature_tour';
 	
 	/**
-	 * {@inheritDoc}
-	 * @see ElggEntity::initializeAttributes()
+	 * {@inheritdoc}
 	 */
 	public function initializeAttributes() {
 		parent::initializeAttributes();
@@ -27,9 +26,9 @@ class FeatureTour extends ElggObject {
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * {@inheritdoc}
 	 */
-	public function getDisplayName() {
+	public function getDisplayName(): string {
 		$title = parent::getDisplayName();
 		if (!empty($title)) {
 			return $title;
@@ -39,14 +38,14 @@ class FeatureTour extends ElggObject {
 	}
 	
 	/**
-	 * {@inheritDoc}
+	 * {@inheritdoc}
 	 */
-	public function getURL() {
+	public function getURL(): string {
 		if (elgg_is_admin_logged_in()) {
 			return elgg_normalize_url("admin/administer_utilities/feature_tour/save?guid={$this->guid}");
 		}
 		
-		return false;
+		return '';
 	}
 	
 	/**

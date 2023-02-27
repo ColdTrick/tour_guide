@@ -27,11 +27,11 @@ if (empty($configuration['steps_config'])) {
 
 if (!empty($guid)) {
 	$entity = get_entity($guid);
-	if (!$entity instanceof FeatureTour || !$entity->canEdit()) {
+	if (!$entity instanceof \FeatureTour || !$entity->canEdit()) {
 		return elgg_error_response(elgg_echo('actionunauthorized'));
 	}
 } else {
-	 $entity = new FeatureTour();
+	 $entity = new \FeatureTour();
 	 
 	 $entity->title = elgg_extract('title', $configuration);
 	 $entity->route_name = elgg_extract('route_name', $configuration);

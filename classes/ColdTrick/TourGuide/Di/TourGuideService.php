@@ -9,19 +9,19 @@ use Elgg\Database\Clauses\SelectClause;
 use Elgg\Router\Route;
 use Elgg\Traits\Di\ServiceFacade;
 
+/**
+ * Tour guide service
+ */
 class TourGuideService {
 
 	use ServiceFacade;
 	
-	/**
-	 * @var \ElggSession
-	 */
-	protected $session;
-	
+	protected \ElggSession $session;
+		
 	/**
 	 * Create a new service
 	 *
-	 * @param \ElggSession $session Elgg session management
+	 * @param \ElggSession $session Elgg session
 	 */
 	public function __construct(\ElggSession $session) {
 		$this->session = $session;
@@ -39,11 +39,13 @@ class TourGuideService {
 	/**
 	 * Return the feature tour (steps) for the current route that the user hasn't seen yet
 	 *
-	 * @return []
+	 * @param bool $show_completed_tours   should completed tours be shown
+	 * @param bool $show_unpublished_tours should unpublished tours be shown
+	 *
+	 * @return array
 	 */
-	public function getPendingFeatureTours(bool $show_completed_tours = false, bool $show_unpublished_tours = false) {
-		$request = _elgg_services()->request;
-		$route = $request->getRoute();
+	public function getPendingFeatureTours(bool $show_completed_tours = false, bool $show_unpublished_tours = false): array {
+		$route = elgg_get_current_route();
 		if (!$route instanceof Route) {
 			return [];
 		}
@@ -78,7 +80,7 @@ class TourGuideService {
 	 *
 	 * @return void
 	 */
-	public function trackCompletedTour(\FeatureTour $entity) {
+	public function trackCompletedTour(\FeatureTour $entity): void {
 		$pending = $this->session->get('tour_guide');
 		if (empty($pending)) {
 			// how did we get here
@@ -111,11 +113,12 @@ class TourGuideService {
 	/**
 	 * Get the feature tours for a given route name
 	 *
-	 * @param string $route_name the route name
+	 * @param string $route_name             the route name
+	 * @param bool   $show_unpublished_tours should unpublished tours be shown
 	 *
 	 * @return \FeatureTour[]
 	 */
-	protected function getToursForRoute(string $route_name, bool $show_unpublished_tours = false) {
+	protected function getToursForRoute(string $route_name, bool $show_unpublished_tours = false): array {
 		return elgg_call(ELGG_IGNORE_ACCESS, function() use ($route_name, $show_unpublished_tours) {
 			$options = [
 				'type' => 'object',
@@ -148,7 +151,7 @@ class TourGuideService {
 	 *
 	 * @return \FeatureTour[]
 	 */
-	protected function getToursByGUID(array $guids) {
+	protected function getToursByGUID(array $guids): array {
 		return elgg_call(ELGG_IGNORE_ACCESS, function () use ($guids) {
 			return elgg_get_entities([
 				'type' => 'object',
@@ -165,8 +168,8 @@ class TourGuideService {
 	 *
 	 * @return array
 	 */
-	protected function cachePendingFeatureTours() {
-		if (!$this->session->isLoggedIn()) {
+	protected function cachePendingFeatureTours(): array {
+		if (!elgg_is_logged_in()) {
 			return [];
 		}
 		
@@ -185,13 +188,13 @@ class TourGuideService {
 					function (QueryBuilder $qb, $main_alias) {
 						$rel = $qb->subquery('entity_relationships');
 						$rel->select('guid_one')
-							->andWhere($qb->compare('guid_two', '=', $this->session->getLoggedInUserGuid(), ELGG_VALUE_GUID))
+							->andWhere($qb->compare('guid_two', '=', elgg_get_logged_in_user_guid(), ELGG_VALUE_GUID))
 							->andWhere($qb->compare('relationship', '=', 'done', ELGG_VALUE_STRING));
 						
 						return $qb->compare("{$main_alias}.guid", 'not in', $rel->getSQL());
 					},
 					function (QueryBuilder $qb, $main_alias) {
-						return $qb->compare("mdr.name", '=', 'route_name', ELGG_VALUE_STRING);
+						return $qb->compare('mdr.name', '=', 'route_name', ELGG_VALUE_STRING);
 					},
 				],
 				'joins' => [
@@ -233,7 +236,7 @@ class TourGuideService {
 	 *
 	 * @return array
 	 */
-	protected function getStepsFromFeatureTours(array $entities = [], bool $track_completed = true) {
+	protected function getStepsFromFeatureTours(array $entities = [], bool $track_completed = true): array {
 		$steps = [];
 		
 		$required = false;
@@ -275,7 +278,6 @@ class TourGuideService {
 		}
 		
 		if (!empty($steps)) {
-			
 			$last_id = count($steps) - 1;
 			
 			$steps[0]['popover']['className'] .= ' popover-step-first';

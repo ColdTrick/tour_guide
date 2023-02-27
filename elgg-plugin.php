@@ -24,12 +24,12 @@ return [
 			],
 		],
 	],
-	'hooks' => [
+	'events' => [
 		'register' => [
 			'menu:entity' => [
 				__NAMESPACE__ . '\Menus::registerEntityMenu' => [],
 			],
-			'menu:page' => [
+			'menu:admin_header' => [
 				__NAMESPACE__ . '\Menus::registerAdminPageMenu' => [],
 			],
 			'menu:topbar' => [

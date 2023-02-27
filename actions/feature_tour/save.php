@@ -9,7 +9,7 @@ if (empty($route_name)) {
 	return elgg_error_response(elgg_echo('error:missing_data'));
 }
 
-$guid = get_input('guid');
+$guid = (int) get_input('guid');
 if (!empty($guid)) {
 	$tour = get_entity($guid);
 	if (!$tour instanceof \FeatureTour || !$tour->canEdit()) {

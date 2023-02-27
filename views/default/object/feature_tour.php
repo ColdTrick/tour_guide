@@ -6,7 +6,7 @@
  */
 
 $entity = elgg_extract('entity', $vars);
-if (!$entity instanceof FeatureTour) {
+if (!$entity instanceof \FeatureTour) {
 	return;
 }
 
@@ -18,9 +18,7 @@ $imprint[] = [
 ];
 
 if (!$entity->published) {
-	$imprint[] = [
-		'content' => elgg_echo('status:unpublished'),
-	];
+	$imprint[] = ['content' => elgg_echo('status:unpublished')];
 }
 
 $params = [

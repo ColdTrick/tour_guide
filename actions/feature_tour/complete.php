@@ -8,7 +8,7 @@ use ColdTrick\TourGuide\Di\TourGuideService;
 $guid = (int) get_input('guid');
 
 $entity = get_entity($guid);
-if (!$entity instanceof FeatureTour) {
+if (!$entity instanceof \FeatureTour) {
 	return elgg_error_response(elgg_echo('error:missing_data'));
 }
 
