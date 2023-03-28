@@ -64,7 +64,7 @@ $menu = elgg_view_menu('steps_edit', [
 	],
 ]);
 
-$module_title = elgg_extract('title', $step) ?: elgg_echo('tour_guide:forms:save:step');
+$module_title = elgg_view_icon('arrows-alt', ['class' => 'mrm']) . elgg_extract('title', $step) ?: elgg_echo('tour_guide:forms:save:step');
 
 $classes = ['tour-guide-feature-tour-step'];
 if ($is_template) {

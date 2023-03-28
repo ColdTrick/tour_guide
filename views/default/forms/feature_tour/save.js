@@ -23,21 +23,8 @@ define(['jquery', 'elgg/Ajax', 'jquery-ui/widgets/sortable'], function($, Ajax) 
 	FeatureTour.initSteps = function(selector) {
 		
 		$(selector).sortable({
-			items: '>div',
-			start: function (event, ui) {
-				if (typeof CKEDITOR !== 'undefined') {
-					require(['elgg-ckeditor'], function(ckeditor) {
-						ckeditor.toggle(ui.item.find('textarea'));
-					});
-				}
-			},
-			stop: function (event, ui) {
-				if (typeof CKEDITOR !== 'undefined') {
-					require(['elgg-ckeditor'], function(ckeditor) {
-						ckeditor.toggle(ui.item.find('textarea'));
-					});
-				}
-			},
+			items: '> div',
+			handle: '> .elgg-head'
 		});
 	};
 	
