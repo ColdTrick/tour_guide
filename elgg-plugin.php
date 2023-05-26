@@ -1,7 +1,5 @@
 <?php
 
-namespace ColdTrick\TourGuide;
-
 $composer_path = '';
 if (is_dir(__DIR__ . '/vendor')) {
 	$composer_path = __DIR__ . '/';
@@ -24,30 +22,30 @@ return [
 			],
 		],
 	],
-	'events' => [
-		'register' => [
-			'menu:entity' => [
-				__NAMESPACE__ . '\Menus::registerEntityMenu' => [],
-			],
-			'menu:admin_header' => [
-				__NAMESPACE__ . '\Menus::registerAdminPageMenu' => [],
-			],
-			'menu:topbar' => [
-				__NAMESPACE__ . '\Menus::registerAccountMenu' => [],
-			],
-		],
-		'view_vars' => [
-			'forms/feature_tour/save' => [
-				__NAMESPACE__ . '\Forms::prepareFeatureTourForm' => [],
-			],
-		],
-	],
 	'actions' => [
 		'feature_tour/complete' => [],
 		'feature_tour/export' => ['access' => 'admin'],
 		'feature_tour/import' => ['access' => 'admin'],
 		'feature_tour/reset' => ['access' => 'admin'],
 		'feature_tour/save' => ['access' => 'admin'],
+	],
+	'events' => [
+		'register' => [
+			'menu:entity' => [
+				'\ColdTrick\TourGuide\Menus\Entity::register' => [],
+			],
+			'menu:admin_header' => [
+				'\ColdTrick\TourGuide\Menus\AdminHeader::register' => [],
+			],
+			'menu:topbar' => [
+				'\ColdTrick\TourGuide\Menus\Topbar::register' => [],
+			],
+		],
+		'view_vars' => [
+			'forms/feature_tour/save' => [
+				'\ColdTrick\TourGuide\Forms::prepareFeatureTourForm' => [],
+			],
+		],
 	],
 	'views' => [
 		'default' => [
