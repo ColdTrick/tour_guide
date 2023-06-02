@@ -1,6 +1,11 @@
 Version history
 ===============
 
+5.0 (2023-06-02):
+
+- changed: conflict with Elgg < 5.0
+- changed: updated for Elgg 5
+
 4.1 (2022-11-16):
 
 - added: ability to config stage background color per step
