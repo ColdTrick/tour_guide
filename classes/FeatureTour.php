@@ -3,18 +3,19 @@
 /**
  * Custom class for Feature Tour
  *
- * @property int    $published    is the tour published to all users (1: yes, 0: no)
- * @property string $route_name   name of the route for this tour
- * @property array  $steps_config tour steps configuration (used for driver.js)
+ * @property bool     $published    is the tour published to all users
+ * @property bool     $required     are users required to finish this tour
+ * @property string   $route_name   name of the route for this tour
+ * @property string[] $steps_config tour steps configuration (used for driver.js, in JSON format)
  */
-class FeatureTour extends ElggObject {
+class FeatureTour extends \ElggObject {
 	
 	const SUBTYPE = 'feature_tour';
 	
 	/**
 	 * {@inheritdoc}
 	 */
-	public function initializeAttributes() {
+	protected function initializeAttributes() {
 		parent::initializeAttributes();
 		
 		$site = elgg_get_site_entity();
