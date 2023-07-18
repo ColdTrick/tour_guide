@@ -61,7 +61,7 @@ echo elgg_format_element('div', ['id' => $steps_id, 'class' => 'tour-guide-featu
 echo elgg_view_field([
 	'#type' => 'button',
 	'icon' => 'plus',
-	'value' => elgg_echo('tour_guide:forms:save:steps:add'),
+	'text' => elgg_echo('tour_guide:forms:save:steps:add'),
 	'id' => 'tour-guide-feature-tour-add-step',
 	'class' => 'elgg-button-action',
 ]);
@@ -70,7 +70,7 @@ echo elgg_format_element('script', [], 'require(["forms/feature_tour/save"], fun
 
 $footer = elgg_view_field([
 	'#type' => 'submit',
-	'value' => elgg_echo('save'),
+	'text' => elgg_echo('save'),
 ]);
 
 elgg_set_form_footer($footer);
