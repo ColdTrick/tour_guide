@@ -28,7 +28,7 @@ class AdminHeader {
 			'name' => 'feature_tours',
 			'text' => elgg_echo('admin:administer_utilities:feature_tours'),
 			'href' => 'admin/administer_utilities/feature_tours',
-			'parent_name' => 'administer_utilities',
+			'parent_name' => 'utilities',
 		]);
 		
 		return $result;
