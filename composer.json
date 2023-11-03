@@ -10,7 +10,6 @@
 		"issues": "https://github.com/ColdTrick/tour_guide/issues"
 	},
 	"require": {
-		"composer/installers": "^1.0.8",
 		"npm-asset/driver.js": "~0.9.0"
 	},
 	"repositories": [
@@ -22,9 +21,6 @@
 	"config": {
 		"fxp-asset": {
             "enabled": false
-		},
-		"allow-plugins": {
-			"composer/installers": true
 		}
 	},
 	"conflict": {
