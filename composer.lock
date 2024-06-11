@@ -4,14 +4,14 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d2f150b7368f4e44846a3d69438d0751",
+    "content-hash": "c1cc7fff14a29e3c547f5a9dac89337a",
     "packages": [
         {
             "name": "npm-asset/driver.js",
-            "version": "0.9.8",
+            "version": "1.3.1",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/driver.js/-/driver.js-0.9.8.tgz"
+                "url": "https://registry.npmjs.org/driver.js/-/driver.js-1.3.1.tgz"
             },
             "type": "npm-asset",
             "license": [

@@ -25,7 +25,8 @@ if (empty($steps)) {
 	return;
 }
 
-elgg_require_js('tour_guide/site');
+elgg_import_esm('tour_guide/site');
+elgg_require_css('tour_guide/driver/driver');
 
 elgg_register_event_handler('elgg.data', 'page', function(\Elgg\Event $event) use ($steps) {
 	/* @var $data array */

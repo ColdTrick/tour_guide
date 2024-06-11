@@ -25,7 +25,7 @@ return array (
   'tour_guide:forms:save:steps:add' => 'Stap toevoegen',
   'tour_guide:forms:save:step' => 'Stap',
   'tour_guide:forms:save:step:element' => 'Element',
-  'tour_guide:forms:save:step:element:help' => 'Voer de CSS selector in van het te selecteren element op de pagina. Bezoeken https://kamranahmed.info/driver.js/ voor meer informatie.',
+  'tour_guide:forms:save:step:element:help' => 'Voer de CSS selector in van het te selecteren element op de pagina. Bezoek https://driverjs.com/docs/basic-usage voor meer informatie.',
   'tour_guide:forms:save:step:stage_background' => 'Achtergrond kleur van uitgelichte element',
   'tour_guide:forms:save:step:position' => 'Positie',
   'tour_guide:forms:save:step:toggle' => 'Weergeven',

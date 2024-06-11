@@ -256,12 +256,19 @@ class TourGuideService {
 			
 			// wrap description
 			foreach ($steps as $index => $step) {
+				if (isset($step['popover']['position'])) {
+					// reword setting to new 1.x driver.js config
+					
+					$steps[$index]['popover']['side'] = $step['popover']['position'];
+					unset($steps[$index]['popover']['position']);
+				}
+				
 				if (!isset($step['popover']['description'])) {
 					continue;
 				}
 				
 				$steps[$index]['popover']['description'] = elgg_view('output/longtext', ['value' => $step['popover']['description']]);
-				$steps[$index]['popover']['className'] = '';
+				$steps[$index]['popover']['popoverClass'] = '';
 				
 				if ($finish_early && !$entity->required) {
 					$steps[$index]['guid'] = $entity->guid;
@@ -275,13 +282,6 @@ class TourGuideService {
 					'guid' => $entity->guid,
 				];
 			}
-		}
-		
-		if (!empty($steps)) {
-			$last_id = count($steps) - 1;
-			
-			$steps[0]['popover']['className'] .= ' popover-step-first';
-			$steps[$last_id]['popover']['className'] .= ' popover-step-last';
 		}
 		
 		if (count($steps) == 1) {

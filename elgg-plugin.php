@@ -53,14 +53,6 @@ return [
 		],
 	],
 	'view_extensions' => [
-		'admin.css' => [
-			'tour_guide/site.css' => [],
-			'tour_guide/driver.css' => [],
-		],
-		'elgg.css' => [
-			'tour_guide/driver.css' => [],
-			'tour_guide/site.css' => [],
-		],
 		'page/elements/header' => [
 			'tour_guide/check_tours' => [],
 		],

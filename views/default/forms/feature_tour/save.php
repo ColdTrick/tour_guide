@@ -66,7 +66,7 @@ echo elgg_view_field([
 	'class' => 'elgg-button-action',
 ]);
 
-echo elgg_format_element('script', [], 'require(["forms/feature_tour/save"], function(FeatureTour) { FeatureTour.initSteps("#' . $steps_id . '"); });');
+echo elgg_format_element('script', [], 'import("forms/feature_tour/save").then((FeatureTour) => { FeatureTour.default.initSteps("#' . $steps_id . '"); });');
 
 $footer = elgg_view_field([
 	'#type' => 'submit',
