@@ -8,7 +8,6 @@ return array (
   'admin:administer_utilities:feature_tour:save' => 'Feature tour toevoegen',
   'tour_guide:settings:finish_early' => 'Voortijdig afronden',
   'tour_guide:settings:finish_early:help' => 'Indien toegestaan kan een feature tour met meerdere stappen voortijdig afgerond worden ',
-  'tour_guide:feature_tours:close:help' => 'Tour afsluiten',
   'tour_guide:forms:save:required' => 'Gebruikers moeten deze tour verplicht afronden',
   'item:object:feature_tour' => 'Feature Tour',
   'collection:object:feature_tour' => 'Feature Tours',
