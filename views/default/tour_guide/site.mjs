@@ -26,12 +26,6 @@ var driver_options = {
 	}
 }
 
-if (elgg.data.tour_guide.steps[0].required) {
-	if (elgg.data.tour_guide.steps.length > 1) {
-		driver_options.popoverClass = 'feature-tour-required';
-	}
-}
-
 var steps = elgg.data.tour_guide.steps;
 var myDriver = driver({
 	...driver_options,
