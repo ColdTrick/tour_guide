@@ -36,7 +36,6 @@ if (isset($steps['element'])) {
 		
 		$steps_config[] = json_encode([
 			'element' => $value,
-			'stageBackground' => elgg_sanitize_input(elgg_extract($index, $steps['stageBackground'])),
 			'popover' => [
 				'title' => elgg_sanitize_input(elgg_extract($index, $steps['title'])),
 				'description' => elgg_sanitize_input(elgg_extract($index, $steps['description'])),

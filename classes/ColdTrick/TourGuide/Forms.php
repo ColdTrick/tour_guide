@@ -41,7 +41,6 @@ class Forms {
 					'title' => $config['popover']['title'],
 					'description' => $config['popover']['description'],
 					'position' => $config['popover']['position'],
-					'stageBackground' => elgg_extract('stageBackground', $config, '#FFFFFF'),
 				];
 			}
 
