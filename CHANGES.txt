@@ -1,6 +1,10 @@
 Version history
 ===============
 
+7.1 (2024-12-11):
+
+- removed: unused background color configuration
+
 7.0.1 (2024-10-10):
 
 - several small chores/fixes
