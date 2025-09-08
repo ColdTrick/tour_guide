@@ -27,21 +27,17 @@ echo elgg_view_field([
 ]);
 
 echo elgg_view_field([
-	'#type' => 'checkbox',
+	'#type' => 'switch',
 	'#label' => elgg_echo('status:published'),
 	'name' => 'published',
-	'value' => 1,
-	'checked' => (bool) elgg_extract('published', $vars),
-	'switch' => true,
+	'value' => elgg_extract('published', $vars),
 ]);
 
 echo elgg_view_field([
-	'#type' => 'checkbox',
+	'#type' => 'switch',
 	'#label' => elgg_echo('tour_guide:forms:save:required'),
 	'name' => 'required',
-	'value' => 1,
-	'checked' => (bool) elgg_extract('required', $vars),
-	'switch' => true,
+	'checked' => elgg_extract('required', $vars),
 ]);
 
 $steps = (array) elgg_extract('steps', $vars, []);
