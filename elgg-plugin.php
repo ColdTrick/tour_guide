@@ -17,14 +17,14 @@ return [
 			'type' => 'object',
 			'subtype' => 'feature_tour',
 			'class' => \FeatureTour::class,
-			'capabilities' => [
-				'commentable' => false,
-			],
 		],
 	],
 	'actions' => [
 		'feature_tour/complete' => [],
-		'feature_tour/export' => ['access' => 'admin'],
+		'feature_tour/export' => [
+			'access' => 'admin',
+			'controller' => \ColdTrick\TourGuide\ExportController::class,
+		],
 		'feature_tour/import' => ['access' => 'admin'],
 		'feature_tour/reset' => ['access' => 'admin'],
 		'feature_tour/save' => ['access' => 'admin'],
@@ -55,6 +55,9 @@ return [
 	'view_extensions' => [
 		'page/elements/header' => [
 			'tour_guide/check_tours' => [],
+		],
+		'tour_guide/driver/driver.css' => [
+			'tour_guide/site.css' => [],
 		],
 	],
 	'view_options' => [

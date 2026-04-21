@@ -1,0 +1,22 @@
+.driver-popover {
+	background-color: var(--elgg-layout-background-color);
+	color: var(--elgg-text-color-strong);
+}
+
+.driver-popover-arrow {
+	&.driver-popover-arrow-side-left {
+		border-left-color: var(--elgg-layout-background-color);
+	}
+	
+	&.driver-popover-arrow-side-right {
+		border-right-color: var(--elgg-layout-background-color);
+	}
+	
+	&.driver-popover-arrow-side-top {
+		border-top-color: var(--elgg-layout-background-color);
+	}
+	
+	&.driver-popover-arrow-side-bottom {
+		border-bottom-color: var(--elgg-layout-background-color);
+	}
+}

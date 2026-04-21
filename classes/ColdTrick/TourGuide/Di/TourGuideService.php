@@ -32,7 +32,7 @@ class TourGuideService {
 	 *
 	 * @return string
 	 */
-	public static function name() {
+	public static function name(): string {
 		return 'tour_guide.service';
 	}
 	

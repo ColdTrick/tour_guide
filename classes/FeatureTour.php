@@ -55,8 +55,7 @@ class FeatureTour extends \ElggObject {
 	 * @return int
 	 */
 	public function getCompleteCount(): int {
-		return elgg_get_relationships([
-			'count' => true,
+		return elgg_count_relationships([
 			'relationship_guid' => $this->guid,
 			'relationship' => 'done',
 		]);
