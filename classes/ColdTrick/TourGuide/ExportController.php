@@ -14,7 +14,7 @@ class ExportController extends \Elgg\Controllers\JsonDownloadAction {
 	/**
 	 * {@inheritdoc}
 	 */
-	protected function validate(): void	{
+	protected function validate(): void {
 		$this->entity = elgg_entity_gatekeeper((int) get_input('guid'), 'object', \FeatureTour::SUBTYPE, true);
 	}
 
