@@ -44,7 +44,7 @@ $menu = elgg_view_menu('steps_edit', [
 		[
 			'name' => 'toggle',
 			'text' => elgg_echo('tour_guide:forms:save:step:toggle'),
-			'icon' => 'hand-point-down-regular',
+			'icon' => 'hand-point-down',
 			'href' => false,
 		],
 		[
