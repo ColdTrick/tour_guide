@@ -7,7 +7,7 @@ if (is_dir(__DIR__ . '/vendor')) {
 
 return [
 	'plugin' => [
-		'version' => '7.1.1',
+		'version' => '8.0',
 	],
 	'settings' => [
 		'finish_early' => 0,
