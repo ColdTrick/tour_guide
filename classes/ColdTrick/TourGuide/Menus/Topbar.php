@@ -34,7 +34,8 @@ class Topbar {
 			'name' => 'feature_tour',
 			'icon' => 'plus',
 			'text' => elgg_echo('add:object:feature_tour'),
-			'href' => elgg_http_add_url_query_elements('admin/administer_utilities/feature_tour/save', [
+			'href' => elgg_generate_url('admin', [
+				'segments' => 'administer_utilities/feature_tour/save',
 				'route_name' => $route->getName(),
 			]),
 			'target' => '_blank',

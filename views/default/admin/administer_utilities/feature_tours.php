@@ -4,7 +4,9 @@ elgg_register_menu_item('title', [
 	'name' => 'add',
 	'icon' => 'plus',
 	'text' => elgg_echo('add'),
-	'href' => 'admin/administer_utilities/feature_tour/save',
+	'href' => elgg_generate_url('admin', [
+		'segments' => 'administer_utilities/feature_tour/save',
+	]),
 	'link_class' => [
 		'elgg-button',
 		'elgg-button-action',
@@ -15,7 +17,10 @@ elgg_register_menu_item('title', [
 	'name' => 'import',
 	'icon' => 'upload',
 	'text' => elgg_echo('import'),
-	'href' => 'ajax/form/feature_tour/import',
+	'href' => elgg_generate_url('ajax', [
+		'type' => 'form',
+		'segments' => 'feature_tour/import',
+	]),
 	'link_class' => [
 		'elgg-button',
 		'elgg-button-action',

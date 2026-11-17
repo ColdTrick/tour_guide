@@ -27,7 +27,9 @@ class AdminHeader {
 		$result[] = \ElggMenuItem::factory([
 			'name' => 'feature_tours',
 			'text' => elgg_echo('admin:administer_utilities:feature_tours'),
-			'href' => 'admin/administer_utilities/feature_tours',
+			'href' => elgg_generate_url('admin', [
+				'segments' => 'administer_utilities/feature_tours',
+			]),
 			'parent_name' => 'utilities',
 		]);
 		
